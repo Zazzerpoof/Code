@@ -56,7 +56,13 @@ dumbo[6] = listy
 location = 5
 print(dumbo[location])
 '''
+'''
 ammo = 9
 lel = str(ammo)
 archer = ["arrow x" + lel, "longsword"]
 print (archer)
+
+'''
+import math
+
+math.ceil

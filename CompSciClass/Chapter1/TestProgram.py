@@ -1,6 +1,6 @@
 import time
 import random
-
+'''
 def TyperText(line):
     line = list(line)
     x = len(line)
@@ -18,4 +18,14 @@ def TyperText(line):
 x = input("Write your story here.\n")
 
 TyperText(x)
+'''
 
+
+a=5
+b=2
+while a > 0:
+        b=b+a-1
+        a=a-2
+print("The End")
+print(a)
+print(b)
