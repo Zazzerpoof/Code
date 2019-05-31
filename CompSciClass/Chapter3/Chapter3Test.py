@@ -1,3 +1,15 @@
+#Gideon Rediger
+#Intro to Computer Science
+#5/31/2019
+#Tom Robinson
+
+
+#The following is a list of the changes/enhancments I have made:
+#1. 
+
+
+
+
 import math
 import random
 import time
@@ -12,7 +24,9 @@ def input_validation(description,input_out_of_range,max,min):
         while len(i) == 0:
             i = input("Error: No input. Please input something: ")
         g = True
-        if int(i) > max or int(i) < min:
+        if RepresentsInt(i) == False:
+            g = False
+        elif int(i) > max or int(i) < min:
             g = False
         if g == True:
             c = True
@@ -20,7 +34,13 @@ def input_validation(description,input_out_of_range,max,min):
             i = input(input_out_of_range)
         counter += 1
     return i
-
+#This Function lets me know if a string is an integer or not without the system freezing
+def RepresentsInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
 def square_root():
     i = input_validation("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis function prints a square root. Enter a number (1 - 9999): ", "Error: Number out of system range. Please input a valid number: ", 9999, 1)
     print("\n\n\nThe square root of " + i + " is " + str(math.sqrt(int(i))))
@@ -37,7 +57,9 @@ def test_score():
         i = i.split()
         g = True
         for x in i:
-            if int(x) > 100 or int(x) < 1:
+            if RepresentsInt(i) == False:
+                g = False
+            elif int(x) > 100 or int(x) < 1:
                 g = False
         if g == True:
             c = True
@@ -72,15 +94,26 @@ def daydif():
         g = True
         for x in range(0,3):
 
-            if x == 1:
+            
                 if int(i[0]) > 12 or int(i[0]) < 1:
                     g = False
-            elif x == 2:
-                if int(i[1]) > 31 or int(i[0]) < 1:
-                    g = False 
-            else:
-                if int(i[2]) > 9999 or int(i[2]) < 1:
-                    g = False
+                else:
+                    if int(i[2]) > 9999 or int(i[2]) < 1:
+                        g = False
+                    else:
+                        if int(i[0]) == 2:
+                            if int(i[2])/4 == int(i[2])//4:     
+                                if int(i[1]) > 29 or int(i[0]) < 1:
+                                    g = False
+                            else:
+                                if int(i[1]) > 28 or int(i[0]) < 1:
+                                    g = False
+                        elif int(i[0]) == 4 or int(i[0]) == 6 or int(i[0]) == 9 or int(i[0]) == 11:    
+                            if int(i[1]) > 30 or int(i[0]) < 1:
+                                g = False
+                        else: 
+                            if int(i[1]) > 31 or int(i[0]) < 1:
+                                g = False 
         if g == True:
             c = True
         else:
@@ -128,4 +161,22 @@ y = round(time.time() - x)
 seconds = str(y % 60)
 minutes = str(y // 60)
 print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you. You used the system for " + minutes + " minutes and " + seconds + " seconds. You will be charged $" + str(y * 0.25) + ".")
-
+'''
+ if x == 1:
+                if int(i[0]) > 12 or int(i[0]) < 1:
+                    g = False
+            elif x == 2:
+                if int(i[0]) == 2:
+                    if int(i[1]) > 31 or int(i[0]) < 1:
+                        g = False
+                elif int(i[0]) == 4 or int(i[0]) == 6 or int(i[0]) == 9 or int(i[0]) == 11:
+                    if     
+                        if int(i[1]) > 30 or int(i[0]) < 1:
+                            g = False
+                else: 
+                    if int(i[1]) > 31 or int(i[0]) < 1:
+                        g = False 
+            else:
+                if int(i[2]) > 9999 or int(i[2]) < 1:
+                    g = False
+'''
