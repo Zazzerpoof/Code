@@ -5,8 +5,19 @@
 
 
 #The following is a list of the changes/enhancments I have made:
-#1. 
+# Minor Changes
+    #1. In Option 3 a total cost is listed i.e. tax + initial money
+    #2. Added and "are you sure" screen when you select 'exit'
+    #3. The screen clears when the menu changes or a result is displayed
+    #4. Added 'Press to continue' options so that you can look at the result before the main menu pops up again
 
+#Major Changes
+    #1. Added complete input validation (I know that the sheet said that this wasn't required in the hint section but I figured it would be nice if I added it)
+        #a. You can input any number and if it is invalid an error will pop up
+        #b. You can just hit enter without typing anything and an error will pop up
+        #c. You can type and character in any order in anything and the program will not freeze
+    #2  Added another option to test whether or not a number is prime
+        #If not prime, gives the first two factors of the number
 
 
 
@@ -14,7 +25,7 @@ import math
 import random
 import time
 from datetime import date
-#The first function is an input validator
+#The first function is an input validator, however it only worked on two of the options
 def input_validation(description,input_out_of_range,max,min):
     counter = 0
     c = False
@@ -57,14 +68,14 @@ def test_score():
         i = i.split()
         g = True
         for x in i:
-            if RepresentsInt(i) == False:
+            if RepresentsInt(x) == False:
                 g = False
             elif int(x) > 100 or int(x) < 1:
                 g = False
         if g == True:
-            c = True
+                c = True
         else:
-            i = input("Error: One or more numbers out of system range. Please input only valid numbers: ")
+                i = input("Error: One or more numbers out of system range. Please input only valid numbers: ")
         counter += 1
     #This is the actual function
     t = 0
@@ -124,14 +135,23 @@ def daydif():
         print("\n\n\nThe number of days between " + str(d1) + " and today is " + str(d1 - date.today())) 
     else:
         print("\n\n\nThe number of days between " + str(d1) + " and today is " + str(date.today() - d1)) 
+
+def is_prime():
+    x = input_validation("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis function tells you whether a or not a number is prime. If a number is not prime, the function will provide two factors of the number. Enter a number (1 - 1000000000): ","Error: number out of system range. Please input a valid number.",1000000000,1)
+    for i in range(2,int(x)//2):
+        if (int(x) % i) == 0:
+            input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+ x +" is not a prime number because " + str(i)+ " times " + str(int(x)//int(i)) + " is " + x + "\nPress enter to continue.")
+            break
+    else:
+        input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + x + " is a prime number\nPress enter to continue")
 stop = False
 trustop = False
 x = time.time()
 while trustop == False:
     while stop == False:
 
-        i = input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Custom Functions\n1. What's the root?\n2. Average my test scores.\n3. Show me the tax.\n4. Randomness.\n5. How many days?\n6. Exit\n Enter an option: ")
-        while i != "1" and i != "2" and i != "3" and i != "4" and i != "5" and i != "6":
+        i = input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Custom Functions\n1. What's the root?\n2. Average my test scores.\n3. Show me the tax.\n4. Randomness.\n5. How many days?\n6. Is it prime?\n7. Exit\n Enter an option: ")
+        while i != "1" and i != "2" and i != "3" and i != "4" and i != "5" and i != "6" and i != "7":
             i = input("Error: invalid input. Please enter a valid command: ")
         if i == "1":
             square_root()
@@ -148,6 +168,8 @@ while trustop == False:
         elif i == "5":
             daydif()
             input("Press Enter to continue")
+        elif i == "6":
+            is_prime()
         else:
             stop = True
     i = input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAre you sure you want to quit? (y or n)\n")
@@ -161,22 +183,3 @@ y = round(time.time() - x)
 seconds = str(y % 60)
 minutes = str(y // 60)
 print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you. You used the system for " + minutes + " minutes and " + seconds + " seconds. You will be charged $" + str(y * 0.25) + ".")
-'''
- if x == 1:
-                if int(i[0]) > 12 or int(i[0]) < 1:
-                    g = False
-            elif x == 2:
-                if int(i[0]) == 2:
-                    if int(i[1]) > 31 or int(i[0]) < 1:
-                        g = False
-                elif int(i[0]) == 4 or int(i[0]) == 6 or int(i[0]) == 9 or int(i[0]) == 11:
-                    if     
-                        if int(i[1]) > 30 or int(i[0]) < 1:
-                            g = False
-                else: 
-                    if int(i[1]) > 31 or int(i[0]) < 1:
-                        g = False 
-            else:
-                if int(i[2]) > 9999 or int(i[2]) < 1:
-                    g = False
-'''
