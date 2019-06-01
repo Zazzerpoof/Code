@@ -144,6 +144,10 @@ def is_prime():
             break
     else:
         input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + x + " is a prime number\nPress enter to continue")
+
+
+#start of script
+
 stop = False
 trustop = False
 x = time.time()
