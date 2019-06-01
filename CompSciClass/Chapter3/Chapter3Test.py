@@ -13,9 +13,9 @@
 
 #Major Changes
     #1. Added complete input validation (I know that the sheet said that this wasn't required in the hint section but I figured it would be nice if I added it)
-        #a. You can input any number and if it is invalid an error will pop up
+        #a. You can input any number, even floats, and if it is invalid an error will pop up
         #b. You can just hit enter without typing anything and an error will pop up
-        #c. You can type and character in any order in anything and the program will not freeze
+        #c. You can type any character in any order in anything and the program will not freeze
     #2  Added another option to test whether or not a number is prime
         #If not prime, gives the first two factors of the number
 
@@ -137,7 +137,7 @@ def daydif():
         print("\n\n\nThe number of days between " + str(d1) + " and today is " + str(date.today() - d1)) 
 
 def is_prime():
-    x = input_validation("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis function tells you whether a or not a number is prime. If a number is not prime, the function will provide two factors of the number. Enter a number (1 - 1000000000): ","Error: number out of system range. Please input a valid number.",1000000000,1)
+    x = input_validation("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis function tells you whether a or not a number is prime. If a number is not prime, the function will provide two factors of the number. Enter a number (1 - 1000000000): ","Error: number out of system range. Please input a valid number: ",1000000000,1)
     for i in range(2,int(x)//2):
         if (int(x) % i) == 0:
             input("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"+ x +" is not a prime number because " + str(i)+ " times " + str(int(x)//int(i)) + " is " + x + "\nPress enter to continue.")
